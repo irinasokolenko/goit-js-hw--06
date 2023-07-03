@@ -1,20 +1,19 @@
-loginForm.addEventListener('submit', handleFormSubmit);
+loginForm.addEventListener('submit', submitHandler);
+const profile = {};
 
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const { email, password } = e.currentTarget.elements;
-  // const {
-  //   elements: { email, password },
-  // } = e.currentTarget;
+function submitHandler(event) {
+  event.preventDefault();
 
-  if (!email.value.trim() || !password.value.trim()) {
-    return alert('Please fill in all the fields!');
+  const email = event.currentTarget.elements.email;
+  const password = event.currentTarget.elements.password;
+
+  if (email.value === '' || password.value === '') {
+    alert('Please fill in all the fields!');
   } else {
-    const formData = {
-      email: email.value,
-      password: password.value,
-    };
-    console.log(formData);
-    e.currentTarget.reset();
+    profile.email = email.value;
+    profile.password = password.value;
+
+    console.log(profile);
   }
+  event.currentTarget.reset();
 }
