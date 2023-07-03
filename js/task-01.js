@@ -1,12 +1,12 @@
 "use strict";
 
-const totalCategories = document.querySelectorAll(".item");
-console.log(`В списке ${totalCategories.length} категории.`);
+const categories = document.querySelectorAll(".item");
+console.log('Namber of categories', categories.length);
+console.log('')
 
-const categoriesArray = [...totalCategories]
-  .map(
-    categories => `Категория: ${categories.children[0].textContent}
-Количество элементов: ${categories.children[1].children.length}`
-  )
-  .join("\n");
-console.log(categoriesArray);
+categories.forEach((element) => {
+    console.log('Category:', element.firstElementChild.textContent)
+    console.log('Elements', element.firstElementChild.children.length)
+    console.log('')
+})
+ 
